@@ -26,6 +26,12 @@ $(document).ready(function (){
             var getTemp = results.main.temp;
             var getHumidity = results.main.humidity;
             var getWindspeed = results.wind.speed;
+            // var currentDate = moment(results.dt, "X").format("MM/DD/YYYY");
+            // var row = $("<div class='row>");
+            // var col = $("<div class='col-sm-12'>");
+            // var img = $("<img>");
+            // img.attr("src", "http://openweathermap.org/img/w" + results.weather[0].icon + ".png");
+
         
             $(".cardTemp").append(getTemp);
             $(".cardTemp").append(getHumidity);
