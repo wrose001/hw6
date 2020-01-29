@@ -1,5 +1,21 @@
 .headerTwo {
+    color: white;
     display: block;
+    text-align: center;
+}
+
+.navText {
+    text-align: center;
+}
+
+.searchArea {
+    float: left;
+    background: lightgrey;
+}
+
+.justifyRight {
+    padding: 0 !important;
+    height: 50 px;
 }
 
 /* Add a black background color to the top navigation bar */

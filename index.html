@@ -5,23 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-       <h2 class="headerTwo">Weather Dashboard</h2>
+    <nav class=" row navbar navbar-dark bg-dark">
+       <div class="col-sm-4"></div>
+        <h2 class="headerTwo col-sm-4">Weather Dashboard</h2>
+        <div class="col-sm-4"></div>
     </nav>
-    <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <input type="text" placeholder="Search..">
-      </div>
-      <div class="card">
-        <div class="card-body">
-          This is some text within a card body.
+    <div class="justifyRight container-fluid">
+        <div class="searchArea col-sm-4">
+            <h5>Search for a city</h5>
+            <input class="enterCity"> 
+            <button class="citySearch">Submit</button>
         </div>
-      </div>
-<script src="script.js"></script>    
+        <div class="cardTemp card col-sm-8">
+            <div class="card-body">
+            </div>
+        </div>
+        <div class="cardForecast card col-sm-8">
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>    
 </body>
 </html>
