@@ -11,6 +11,7 @@
 .searchArea {
     float: left;
     background: lightgrey;
+    height: 500px;
 }
 
 .justifyRight {
