@@ -35,9 +35,11 @@ $(document).ready(function () {
             var p = $("<p>")
             temp = ((response.main.temp - 273.15) * 1.8) + 32
             temp = Math.round(temp)
-            p.append("temperature: " + temp + " F" + "<br><br>")
+            p.append("Temperature: " + temp + " F" + "<br><br>")
             var humidity = response.main.humidity
-            p.append("humidity: " + humidity)
+            p.append("Humidity: " + humidity + "<br><br>")
+            var windSpeed = response.wind.speed
+            p.append("Wind Speed: " + windSpeed + " MPH")
             col.append(h3, p)
             row.html(col)
             $("#dashboard").append(row)
