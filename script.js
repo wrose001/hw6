@@ -10,7 +10,7 @@ $(document).ready(function () {
     //- http://api.openweathermap.org/data/2.5/uvi
 
 
-    let forecastURL = "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&q=";
+    // let forecastURL = "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&q=";
 
 
 
@@ -22,7 +22,7 @@ $(document).ready(function () {
             url: weatherURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response)
+            // console.log(response)
 
             var currentDate = moment(response.dt, "X").format("MM/DD/YYYY")
             var row = $("<div class='row'>")
@@ -73,40 +73,46 @@ $(document).ready(function () {
                 // } else if (uvResults <= 7) {
                 //     $(this).prop('uvButtonOne', 'uvButtonThree');
                 // }
-
+                let forecastURL = "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&q=" + city;
+               
                 $.ajax({
+                    
+                    // let city = $("#city").val()
                     // url: "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon + "&q=",
                     url: forecastURL,
                     method: "GET"
                 }).then(function(response3){
                     // console.log("response3:")
                     // console.log(response3)
-                    // for (let index = 1; index < response.list.length; index++) {
+                    for (let index = 1; index < response3.list.length; index++) {    
+                        // var currentDate = moment(response3.dt, "X").format("MM/DD/YYYY")
+                        var p = $("<p>")
                         var row = $("<div class='row'>")
                         var col = $("<div class='col-sm-12'>")
                         var img = $("<img>")
+                        var img = $("<img>")
+                        // img.attr("src", "http://openweathermap.org/img/w/" + response3.weather[0].icon + ".png")
                 
                     if (response3.list[index].dt_txt.indexof("09:00:00") > -1) {
                     p.append("5-Day Forecast: " + "")
                     col.append(p)
                     row.html(col)
-                    $("#five-day").append.(row)
+                    $("#five-day").append(row)
+                    console.log("HEY")
+                    }
                 }
-                })
-            })
+            });
             $("#clear").click(function () {
                 localStorage.clear();
             });
 
             
 
-        })
+        });
 
-    })
+     });
 
-
-
-
+    });
 
 
 
@@ -124,19 +130,7 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-})
+});
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -299,4 +293,4 @@ $(document).ready(function () {
 // //         console.log(uvResults)
 // //     })
 // //     console.log(results)
-// // })
+// //
