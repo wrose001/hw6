@@ -41,6 +41,19 @@ body {
   padding: 10px;
 }
 
+#uvButtonOne {
+  background: green;
+}
+
+#uvButtonTwo {
+  background: orange;
+}
+
+#uvButtonThree {
+  background: red;
+}
+
+
 
 
 /* /////////////////////////////////////////////////////////////////////////////

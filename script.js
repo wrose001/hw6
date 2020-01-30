@@ -54,7 +54,7 @@ $(document).ready(function () {
                 // console.log(response2)
                 var pTwo = $("<p>")
                 var uvResults = response2.value
-                pTwo.append("UV Index: " + "<button>" + uvResults + "</button>")
+                pTwo.append("UV Index: " + "<button id='uvButtonOne'>" + uvResults + "</button>")
                 col.append(pTwo)
                 row.html(col)
                 $("#dashboard").append(row)
