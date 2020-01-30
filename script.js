@@ -72,7 +72,9 @@ $(document).ready(function () {
                     console.log(response3)
                 })
             })
-
+            $("#clear").click(function () {
+                localStorage.clear();
+            });
 
         })
 
