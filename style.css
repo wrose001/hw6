@@ -1,4 +1,40 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  line-height: 1;
+ 
+}
 
+#city{
+  width:100%;
+  
+}
+
+.jumbotron {
+  text-align: center;
+  font-weight: bold;
+  font-size: 70px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: turquoise;
+  color: gray;
+  border-radius: 0;
+  border-bottom: 5px solid gray;
+}
+
+#searchArea {
+  background: lightgray;
+  height: 500px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#seachBtn {
+  color: gray;
+  background: transparent;
+  border: 2px solid gray;
+  border-radius: 6px;
+  margin: 20px 20px 20px 160px;
+  padding: 10px;
+}
 
 
 
