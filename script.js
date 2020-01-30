@@ -46,6 +46,16 @@ $(document).ready(function () {
 
             var lat = response.coord.lat
             var lon = response.coord.lon
+
+            // for (let index = 1; index < response.list.length; index++) {
+            //     if (response.list[index].dt_txt.indexof("09:00:00") > -1) {
+            //         p.append("5-Day Forecast: " + "")
+            //         col.append(p)
+            //         row.html(col)
+            //         $("dashboard").append.(row)
+            //     }
+            // }
+ 
             $.ajax({
                 url: "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon,
                 method: "GET"
@@ -65,16 +75,30 @@ $(document).ready(function () {
                 // }
 
                 $.ajax({
-                    url: "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon + "&q=",
+                    // url: "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon + "&q=",
+                    url: forecastURL,
                     method: "GET"
                 }).then(function(response3){
-                    console.log("response3:")
-                    console.log(response3)
+                    // console.log("response3:")
+                    // console.log(response3)
+                    // for (let index = 1; index < response.list.length; index++) {
+                        var row = $("<div class='row'>")
+                        var col = $("<div class='col-sm-12'>")
+                        var img = $("<img>")
+                
+                    if (response3.list[index].dt_txt.indexof("09:00:00") > -1) {
+                    p.append("5-Day Forecast: " + "")
+                    col.append(p)
+                    row.html(col)
+                    $("#five-day").append.(row)
+                }
                 })
             })
             $("#clear").click(function () {
                 localStorage.clear();
             });
+
+            
 
         })
 
