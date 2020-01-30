@@ -50,8 +50,14 @@ $(document).ready(function () {
                 url: "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon,
                 method: "GET"
             }).then(function (response2) {
-                console.log("response2:")
-                console.log(response2)
+                // console.log("response2:")
+                // console.log(response2)
+                var pTwo = $("<p>")
+                var uvResults = response2.value
+                pTwo.append("UV Index: " + "<button>" + uvResults + "</button>")
+                col.append(pTwo)
+                row.html(col)
+                $("#dashboard").append(row)
 
                 $.ajax({
                     url: "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon + "&q=",
