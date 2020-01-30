@@ -58,6 +58,11 @@ $(document).ready(function () {
                 col.append(pTwo)
                 row.html(col)
                 $("#dashboard").append(row)
+                // if (uvResults <= 4 && >= 7) {
+                //     $(this).prop('uvButtonOne', 'uvButtonTwo');
+                // } else if (uvResults <= 7) {
+                //     $(this).prop('uvButtonOne', 'uvButtonThree');
+                // }
 
                 $.ajax({
                     url: "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon + "&q=",
