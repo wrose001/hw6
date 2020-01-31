@@ -57,7 +57,7 @@ $(document).ready(function () {
             // }
  
             $.ajax({
-                url: "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon,
+                url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon,
                 method: "GET"
             }).then(function (response2) {
                 // console.log("response2:")
@@ -73,7 +73,7 @@ $(document).ready(function () {
                 // } else if (uvResults <= 7) {
                 //     $(this).prop('uvButtonOne', 'uvButtonThree');
                 // }
-                let forecastURL = "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&q=" + city;
+                let forecastURL = "https://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&q=" + city;
                
                 $.ajax({
                     
@@ -90,15 +90,17 @@ $(document).ready(function () {
                         var row = $("<div class='row'>")
                         var col = $("<div class='col-sm-12'>")
                         var img = $("<img>")
-                        var img = $("<img>")
+                        // var img = $("<img>")
                         // img.attr("src", "http://openweathermap.org/img/w/" + response3.weather[0].icon + ".png")
                 
-                    if (response3.list[index].dt_txt.indexof("09:00:00") > -1) {
-                    p.append("5-Day Forecast: " + "")
+                    if (response3.list[index].dt_txt.indexOf("09:00:00") > -1) {
+                    console.log(response3.list[index])
+                    p.append("Temperature: " + response3.list[index].main.temp)
                     col.append(p)
                     row.html(col)
                     $("#five-day").append(row)
                     console.log("HEY")
+                    
                     }
                 }
             });
