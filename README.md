@@ -15,7 +15,7 @@ This web application is a weather dashboard that allows users to see weather-rel
 
 ## Images
 
-![]() 
+![Weather Dashboard](images/weatherImage.png) 
 
 ## Built With
 
