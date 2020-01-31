@@ -3,7 +3,7 @@ $(document).ready(function () {
     let cityArr = [];
     const apiKey = "aed52c01e7f5375831def9553ce0837d";
 
-
+    var retrieveCities = localStorage.getItem('userCity');
     // Use the [OpenWeather API](https://openweathermap.org/api)
     //- http://api.openweathermap.org/data/2.5/weather
     //- http://api.openweathermap.org/data/2.5/forecast
@@ -12,12 +12,19 @@ $(document).ready(function () {
 
     // let forecastURL = "http://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&q=";
 
-
+    retrieveCities.forEach(function(item){
+        var p = $("<p>" + item + "</p>")
+        $("#searchArea").append(p)
+    });
 
 
     $("#seachBtn").on("click", function () {
         let city = $("#city").val()
+        var cityList = []
+        cityList.push(city)
+        localStorage.setItem('userCity', cityList)
         let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=" + apiKey + "&q=" + city;
+        
         $.ajax({
             url: weatherURL,
             method: "GET"
@@ -64,15 +71,15 @@ $(document).ready(function () {
                 // console.log(response2)
                 var pTwo = $("<p>")
                 var uvResults = response2.value
-                pTwo.append("UV Index: " + "<button id='uvButtonOne'>" + uvResults + "</button>")
+                pTwo.append("UV Index: " + "<button id='uvButton'>" + uvResults + "</button>")
                 col.append(pTwo)
                 row.html(col)
                 $("#dashboard").append(row)
-                // if (uvResults <= 4 && >= 7) {
-                //     $(this).prop('uvButtonOne', 'uvButtonTwo');
-                // } else if (uvResults <= 7) {
-                //     $(this).prop('uvButtonOne', 'uvButtonThree');
-                // }
+                if (uvResults >= 4 && uvResults <= 7) {
+                    $("#uvButton").addClass('uvButtonTwo');
+                } else if (uvResults > 7) {
+                    $("#uvButton").addClass('uvButtonThree');
+                } else {$("#uvButton").addClass('uvButtonOne');}
                 let forecastURL = "https://api.openweathermap.org/data/2.5/forecast?appid=" + apiKey + "&q=" + city;
                
                 $.ajax({
@@ -90,16 +97,20 @@ $(document).ready(function () {
                         var row = $("<div class='row'>")
                         var col = $("<div class='col-sm-12'>")
                         var img = $("<img>")
+                        // var FiveDayDate = moment(response3.dt).format("MM/DD/YYYY")
+                        // console.log(FiveDayDate)
                         // var img = $("<img>")
                         // img.attr("src", "http://openweathermap.org/img/w/" + response3.weather[0].icon + ".png")
                 
                     if (response3.list[index].dt_txt.indexOf("09:00:00") > -1) {
                     console.log(response3.list[index])
                     p.append("Temperature: " + response3.list[index].main.temp)
+                    p.append("Humidity: " + response3.list[index].main.humidity)
+                    p.append(moment(response3.list[index].dt).format("MM/DD/YYYY"))
                     col.append(p)
                     row.html(col)
                     $("#five-day").append(row)
-                    console.log("HEY")
+                    
                     
                     }
                 }

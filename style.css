@@ -41,15 +41,15 @@ body {
   padding: 10px;
 }
 
-#uvButtonOne {
+.uvButtonOne {
   background: green;
 }
 
-#uvButtonTwo {
+.uvButtonTwo {
   background: orange;
 }
 
-#uvButtonThree {
+.uvButtonThree {
   background: red;
 }
 
